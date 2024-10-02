@@ -25,7 +25,7 @@ const CustomTable = ({ data, name }) => {
 
   return (
     <Box p={0}>
-      <Box overflowX="auto" borderWidth="1px" maxH="500px" p={0}>
+      <Box overflowX="auto" borderWidth="1px" maxH="600px" p={0}>
         <Table size="sm">
           <Thead>
             <Tr>
@@ -63,7 +63,8 @@ const CustomTable = ({ data, name }) => {
                         : 'white'
                     }
                   >
-                    {data[usage][size]}%
+                    {data[usage][size]}
+                    {name === 'Self Consumption' && '%'}
                   </Td>
                 ))}
               </Tr>

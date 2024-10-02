@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, Input, Text } from '@chakra-ui/react';
 
-const BatteryForm = ({ setBill, setSize }) => {
+const BatteryForm = ({ setBill, setSize, setDays }) => {
   const [billInput, setBillInput] = useState(null);
   const [sizeInput, setSizeInput] = useState(null);
   const [daysInput, setDaysInput] = useState(null);
@@ -11,6 +11,7 @@ const BatteryForm = ({ setBill, setSize }) => {
     const monthlyBill = (billInput / daysInput) * 30;
     setBill(billInput);
     setSize(sizeInput);
+    setDays(daysInput);
   };
 
   return (

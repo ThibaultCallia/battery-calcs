@@ -1,3 +1,11 @@
+// Energy data
+export const energyData = {
+  energyPrice: 0.36,
+  feedInTariff: 0.07,
+  supplyCharge: 1.0,
+  productionConservatism: 0.85,
+};
+
 // Solar system Sizes in kW
 export const solarSystemSizes = [
   2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,

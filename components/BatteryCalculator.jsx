@@ -7,11 +7,12 @@ import BatteryResults from './BatteryResults';
 const BatteryCalculator = () => {
   const [bill, setBill] = useState(null);
   const [size, setSize] = useState(null);
+  const [days, setDays] = useState(null);
 
   return (
     <>
-      <BatteryForm setBill={setBill} setSize={setSize} />
-      {bill && size && <BatteryResults size={size} bill={bill} />}
+      <BatteryForm setBill={setBill} setSize={setSize} setDays={setDays} />
+      {bill && size && <BatteryResults size={size} bill={bill} days={days} />}
     </>
   );
 };

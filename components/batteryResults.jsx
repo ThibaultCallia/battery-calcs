@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text, Stack } from '@chakra-ui/react';
 import { calculateAdvice } from '@/batteryCalcs/functions';
 
-const BatteryResults = ({ bill, size }) => {
+const BatteryResults = ({ bill, days, size }) => {
   const {
     estimatedConsumption,
     estimatedSelfConsumption,
@@ -11,7 +11,7 @@ const BatteryResults = ({ bill, size }) => {
     suggestedBatterySize,
     batteryCost,
     roi,
-  } = calculateAdvice(bill, size);
+  } = calculateAdvice(bill, days, size);
 
   return (
     <Box
@@ -29,7 +29,7 @@ const BatteryResults = ({ bill, size }) => {
       <Stack spacing={3}>
         <Text>
           <strong>Estimated Self-Consumption:</strong>{' '}
-          {estimatedSelfConsumption}
+          {estimatedSelfConsumption} %
         </Text>
         <Text>
           <strong>Estimated Consumption:</strong> {estimatedConsumption}

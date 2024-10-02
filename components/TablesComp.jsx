@@ -19,7 +19,7 @@ const TablesComp = () => {
           <Heading as="h3" size="md" mb={2}>
             Self Consumption
           </Heading>
-          <CustomTable data={selfConsumptionTable} name={'self consumption'} />
+          <CustomTable data={selfConsumptionTable} name={'Self Consumption'} />
         </Box>
 
         {/* Bill Table */}
@@ -40,7 +40,7 @@ const TablesComp = () => {
 
         {/* Import Table */}
         <Box>
-          <Heading as="h3" size="md" mb={4}>
+          <Heading as="h3" size="md" mb={2}>
             Import
           </Heading>
           <CustomTable data={selfConsumptionTable} name={'import'} />
