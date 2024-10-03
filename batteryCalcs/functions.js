@@ -1,5 +1,17 @@
-/* selfConsumptionArray represents a reference table we will use for battery calculations. 
-This will be available in CMS - and will be finetuned in the future
+/* 
+selfConsumptionArray represents a reference table we will use for battery calculations. 
+This will be available in CMS - and will be fine-tuned in the future
+*/
+
+/* 
+IF BILL SIZE FALLS OUTSIDE OF OUR RANGE
+If user bill falls outside of what our model offers, the largest system possible if chosen by default. 
+*/
+
+/* 
+BATTERY COSTS
+Exact logic behind which battery will be fine-tuned. The logic on how much that setup costs (and thus what ROI will be) also has to be created. 
+These will not be more complex than following calcs:
 */
 
 import {
