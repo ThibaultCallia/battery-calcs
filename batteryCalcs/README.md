@@ -8,17 +8,21 @@ Out of the reference table, certain variables are calculated (export, import, bi
 
 **Files**
 
+demo.js
+
+    Logs two outputs of the demo
+
 functions.js
 
-    Given the bill, period of bill (number of days) and solar system size, the calculate advice function will return the estimated export, import, self consumption rate. The period of bill is purely added for us to use in this demo platform - to test out cases and verify real examples.
+    Given the bill and solar system size, the calculate advice function will return the estimated export, import, self consumption rate.
 
     These calculations are done based on a reference table representing the average self consumption rate of a family with X avg daily usage and Y solar system size.
 
-    These variables are needed to calculate the advised battery size. For now the battery size is the min between the export and import. This will be fine-tuned soon.
-
-    The cost of the battery - and thus the ROI of the advised setup - will also follow but is a result of the advised battery size.
+    The optimal battery size is used to find the advised battery size - after which the costs are calculated.
 
 referenceData.js
+
+    GENERAL NOTE: The excel version of the tables should be used. The objects in the referenceData.js file are possibly older versions.
 
     EnergyData:
         energyPrice: /
@@ -26,8 +30,18 @@ referenceData.js
         supplyCharge: Daily supply charge of grid connection
         productionConservatism: A % conservatism we use in the Google API fallback calcs
 
+    batteryRebatesData:
+        BRCNLF: net loss factor (needed for rebate calc)
+        BRCConstant: constant (needed for rebate calc)
+        BRCValue: spot price of one rebate
+
+
     selfConsumptionArray:
         This 2D array represents the reference data we're using as a basis for the calcs.
+
+    batterySizeTable:
+        This is an object representing the reference table for optimal battery size vs advised size
+        NOTE: in the shared excel a  more recent version has been created.
 
     self consumption jSON:
         Non-used JSON representing the same data

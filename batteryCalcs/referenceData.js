@@ -1,4 +1,6 @@
-// Energy data
+// Reference tables and variables are objects made for the purpose of the demo. They will of course be saved differently in CMS/ database
+
+// Energy data;
 export const energyData = {
   energyPrice: 0.36,
   feedInTariffBattery: 0.07,
@@ -7,12 +9,16 @@ export const energyData = {
 };
 
 export const batteryRebatesData = {
-  PRCNLF: 1.04,
-  PRCBRC: 77,
-  PRCValue: 2,
+  BRCNLF: 1.04,
+  BRCConstant: 77,
+  BRCValue: 2,
 };
+/*
+Solar system Sizes in kW - We should be able to expand on these ranges. :
+We might update these ranges by adding smaller steps and expanding on the reference table. 
+Be sure to make the code dynamic to handle these future changes
+*/
 
-// Solar system Sizes in kW
 export const solarSystemSizes = [
   2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
 ];
@@ -24,6 +30,7 @@ export const consumptionRanges = [
 
 // A reference table representing the self consumption (in %) of a household with solar system size x and avg daily consumption y
 // Self consumption is how much of solar produced per day (on avg) a household consumes and thus does not export
+
 export const selfConsumptionArray = [
   [
     30.0, 48.0, 57.0, 66.0, 73.0, 82.0, 85.3, 88.6, 91.8, 95.0, 97.5, 100.0,

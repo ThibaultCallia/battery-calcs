@@ -5,8 +5,8 @@ This will be available in CMS - and will be fine-tuned in the future
 
 /* 
 -- IF BILL SIZE FALLS OUTSIDE OF OUR RANGE --
-If user bill falls outside of what our model offers, the largest system possible if chosen by default. 
-We do not offer battery systems of smaller than 6.4 kWh
+If user bill falls outside of what our model offers, the largest or smallest daily consumption is chosen by default. 
+
 */
 
 import {
@@ -180,13 +180,13 @@ export const calculateBatteryCost = (batterySizeAdvice, hasSolar) => {
    Ideally, the cost calculation would be done according to whether the battery is modular or not and referring to the database
   */
   const { teslaSize, sungrowSize, optimalBatterySize } = batterySizeAdvice;
-  const { PRCNLF, PRCBRC, PRCValue } = batteryRebatesData;
+  const { BRCNLF, BRCConstant, BRCValue } = batteryRebatesData;
   const { energyPrice, feedInTariffBattery } = energyData;
 
   // Tesla Battery Cost Calculation --------
   const teslaModel = hasSolar ? batteryCostData.PW2 : batteryCostData.PW3; // determine which model will be used
   const teslaBaseUnits = teslaSize / teslaModel.baseCapacity; //Determine how many models will be used
-  const teslaRebates = teslaSize * PRCNLF * PRCBRC * PRCValue;
+  const teslaRebates = teslaSize * BRCNLF * BRCConstant * BRCValue;
   // install cost is initial install for the first unit and extra install cost per extra unit
   const teslaCost =
     teslaBaseUnits * teslaModel.baseCost +
@@ -213,7 +213,7 @@ export const calculateBatteryCost = (batterySizeAdvice, hasSolar) => {
   const sungrowBaseUnits = Math.ceil(
     sungrowModularUnits / sungrowModel.modularUnitsPerBase
   );
-  const sungrowRebates = sungrowSize * PRCNLF * PRCBRC * PRCValue;
+  const sungrowRebates = sungrowSize * BRCNLF * BRCConstant * BRCValue;
 
   const sungrowCost =
     sungrowModularUnits * sungrowModel.modularUnitCost + // Cost of all modular units
